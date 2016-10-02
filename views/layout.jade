@@ -32,24 +32,32 @@ html
       });
       
       //- editor Input
-      var editor = ace.edit("editorI");
-      editor.setTheme("ace/theme/monokai");
-      editor.getSession().setMode("ace/mode/javascript");
-      editor.setOptions({
+      var editorI = ace.edit("editorI");
+      editorI.setTheme("ace/theme/monokai");
+      editorI.getSession().setMode("ace/mode/javascript");
+      editorI.setOptions({
         fontFamily: "tahoma"
       });
 
       //- editor Output
-      var editor = ace.edit("editorO");
-      editor.setTheme("ace/theme/monokai");
-      editor.getSession().setMode("ace/mode/javascript");
-      editor.setOptions({
+      var editorO = ace.edit("editorO");
+      editorO.setTheme("ace/theme/monokai");
+      editorO.getSession().setMode("ace/mode/javascript");
+      editorO.setOptions({
         fontFamily: "tahoma",
         readOnly : true
       });
 
       var btn = document.getElementById('run');
       btn.addEventListener('click', function(){
-      	
+          var code = 	editor.getValue();
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                debugger;
+            }
+          };
+          xhttp.open("GET", "/run", true);
+          xhttp.send("code="+code);
       });
     block content
