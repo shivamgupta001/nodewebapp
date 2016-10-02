@@ -3,5 +3,56 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='/javascripts/ace/src-min/ace.js')
   body
+    div(class="liveContainer")
+      div(class="topbar")
+        select(id="language")
+          option C#
+          option C
+          option C++
+          option java
+          option javascript
+          option Ruby
+          option Python
+        input(type="button", value="Run", id="run") 
+      div(class="editorConatiner")
+        div(id="editor", class="liveEditor")
+        div(id="iocontainer")
+          div(id="editorI", class="liveEditorInput")
+          div(id="editorO", class="liveEditorOutput")
+    script.
+
+      //- editor
+      var editor = ace.edit("editor");
+      editor.setTheme("ace/theme/monokai");
+      editor.getSession().setMode("ace/mode/javascript");
+      editor.setOptions({
+        fontFamily: "tahoma",
+        fontSize: "10pt"
+      });
+      
+      //- editor Input
+      var editor = ace.edit("editorI");
+      editor.setTheme("ace/theme/monokai");
+      editor.getSession().setMode("ace/mode/javascript");
+      editor.setOptions({
+        fontFamily: "tahoma",
+        fontSize: "10pt"
+      });
+
+      //- editor Output
+      var editor = ace.edit("editorO");
+      editor.setTheme("ace/theme/monokai");
+      editor.getSession().setMode("ace/mode/javascript");
+      editor.setOptions({
+        fontFamily: "tahoma",
+        fontSize: "10pt",
+        readOnly : true
+      });
+
+      var btn = document.getElementById('run');
+      btn.addEventListener('click', function(){
+      	
+      });
     block content
