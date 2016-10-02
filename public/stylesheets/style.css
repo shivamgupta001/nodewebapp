@@ -52,6 +52,7 @@ body {
 	background-color : chocolate;
 	border : 2px solid orange;
 	border-radius : 4px;
+	margin : 10px 10px 10px 0px;
 }
 #language{
 	width: 200px;
